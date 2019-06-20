@@ -1,15 +1,5 @@
 @extends('layouts.app')
 
-<!-- Favicon -->
-  <link href="{{ asset('argon-dashboard-free/img/brand/favicon.png') }}" rel="icon" type="image/png">
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-  <!-- Icons -->
-  <link href="{{ asset('argon-dashboard-free/vendor/nucleo/css/nucleo.css') }}" rel="stylesheet">
-  <link href="{{ asset('argon-dashboard-free/vendor/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
-  <!-- Argon CSS -->
-  <link type="text/css" href="{{ asset('argon-dashboard-free/css/argon.css?v=1.0.0') }}" rel="stylesheet">
-
 @section('content')
     <!-- Header -->
     <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
@@ -105,7 +95,7 @@
         </div>
       </div>
     </div>
-        <div class="container-fluid mt--7">
+    <div class="container-fluid mt--7">
       <div class="row">
         <div class="col-xl-8 mb-5 mb-xl-0">
           <div class="card bg-gradient-default shadow">

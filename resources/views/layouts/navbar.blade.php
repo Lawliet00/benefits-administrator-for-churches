@@ -1,4 +1,4 @@
-<ul class="navbar-nav">
+{{-- <ul class="navbar-nav">
   <li class="nav-item">
     <a class="nav-link" href="./index.html">
       <i class="ni ni-tv-2 text-primary"></i> Dashboard
@@ -34,4 +34,17 @@
       <i class="ni ni-circle-08 text-pink"></i> Register
     </a>
   </li>
+</ul> --}}
+
+<ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="">
+        <i class="ni ni-box-2 text-blue"></i> Jornadas
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{ route('churches') }}">
+        <i class="ni ni-istanbul text-info"></i> Iglesias
+      </a>
+    </li>
 </ul>

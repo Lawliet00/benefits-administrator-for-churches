@@ -20,7 +20,7 @@ class LoginController extends Controller
             'password' => 'required|string',
         ]);
         if (Auth::attempt($credentials)) {
-            return redirect('/');
+            return redirect()->route('dashboard');
         }
         return back()
                     ->withErrors(['password' => 'El usuario o contraseña no coinciden.'])
