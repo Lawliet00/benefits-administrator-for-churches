@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use App\Parish;
 class ParishesTableSeeder extends Seeder
 {
     /**
@@ -11,6 +11,10 @@ class ParishesTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        // Model::unguard();
+        Parish::updateOrCreate([
+			'name'=>'parroquia test',
+		],
+        []);
     }
 }

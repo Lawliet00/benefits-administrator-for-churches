@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use App\Municipality;
 class MunicipalitiesTableSeeder extends Seeder
 {
     /**
@@ -11,6 +11,10 @@ class MunicipalitiesTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        // Model::unguard();
+        Municipality::updateOrCreate([
+			'name'=>'municipio test',
+		],
+        []);
     }
 }

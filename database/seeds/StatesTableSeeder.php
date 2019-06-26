@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\State;
 
 class StatesTableSeeder extends Seeder
 {
@@ -11,6 +12,7 @@ class StatesTableSeeder extends Seeder
      */
     public function run()
     {
+    	// Model::unguard();
         $states = [
 			        [
 					    "name"=>"Amazonas", "capital"=>"Puerto Ayacucho"
@@ -84,6 +86,13 @@ class StatesTableSeeder extends Seeder
 					[
 					    "name"=>"Zulia", "capital"=>"Maracaibo"
 					],
-			];
+		];
+
+		foreach ($states as $state) {
+			State::updateOrCreate([
+				'name'=>$state['name'],
+			],
+	        []);
+		}
     }
 }
