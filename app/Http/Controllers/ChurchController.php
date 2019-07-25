@@ -16,8 +16,31 @@ class ChurchController extends Controller
 {
     public function index()
     {
-        $churches = Church::orderBy('church_name','ASC')->get();
+        $churches = [];
 
+        foreach (Church::orderBy('church_name','ASC')->get() as $church) {
+            array_push($churches, [
+                'id'=> $church->id,
+                'church'=> $church->church_name,
+                'pastor'=> $church->pastor_surnames.', '.$church->pastor_names,
+                'action'=> $church->id,
+                // 'denomination'=> $church->denomination_id,
+
+                // 'ci'=> $church->ci
+                // 'phone'=> $church->phone
+                // 'email'=> $church->email
+                // 'church_address'=> $church->church_address
+                // 'state_id'=> $church->state_id
+                // ''=> $church->
+                // ''=> $church->
+                // ''=> $church->
+                // ''=> $church->
+                // ''=> $church->
+                // ''=> $church->
+            ]);
+        }
+
+        $churches = json_encode($churches);
     	return view('app.churches.index',compact('churches'));
     }
 

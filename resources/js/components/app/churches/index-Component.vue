@@ -1,32 +1,33 @@
 <template>
-	<div class="table table-responsive">
-      	<table class="table align-items-center table-flush">
-	        <thead class="thead-light">
-	          <tr>
-	            <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">IGLESIA</font></font></th>
-	            <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">PASTOR</font></font></th>
-	            <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">DENOMINACION</font></font></th>
-	            <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ESTADO</font></font></th>
-	            <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CIUDAD</font></font></th>
-	            <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">MUNICIPIO</font></font></th>
-	            <th scope="col"></th>
-	          </tr>
-	        </thead>
-	        <tbody>
-	          <tr v-for="record in records">
-	            <th scope="row">
-	              <div class="media align-items-center">
-	                <div class="media-body">
-	                  <span class="mb-0 text-sm"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ record.church_name }}</font></font></span>
-	                </div>
-	              </div>
-	            </th>
-	            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-	              {{ pastor_surnames+' '+pastor_names }}
-	            </font></font></td>
-	            <td>
-		            <span class="badge badge-dot mr-4">
-		              <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> {{ record.denomination.name }}
+	<!-- <div class="table table-responsive">
+       <table class="table align-items-center table-flush">
+               <thead class="thead-light">
+                 <tr>
+                   <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">IGLESIA</font></font></th>
+                   <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">PASTOR</font></font></th>
+                   <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">DENOMINACION</font></font></th>
+                   <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ESTADO</font></font></th>
+                   <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CIUDAD</font></font></th>
+                   <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">MUNICIPIO</font></font></th>
+                   <th scope="col"></th>
+                 </tr>
+               </thead>
+               <tbody>
+                 <tr v-for="record in records">
+                   <th scope="row">
+                     <div class="media align-items-center">
+                       <div class="media-body">
+                         <span class="mb-0 text-sm"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ record.church_name }}</font></font></span>
+                       </div>
+                     </div>
+                   </th>
+                   <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                     {{ record.pastor_surnames+' '+record.pastor_names }}
+                   </font></font></td>
+                   <td>
+                           <span class="badge badge-dot mr-4">
+                             <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> {{ record.denomination.name }}
+
 		            </font></font></span>
 	            </td>
 
@@ -86,15 +87,45 @@
                 </ul>
               </nav>
             </div>
-    </div>
+    </div> -->
+
+    <v-client-table :columns="columns" :data="records" :options="table_options">
+		<div slot="action" slot-scope="props" class="text-center">
+			<button @click="editForm(props.row.id)"
+					class="btn btn-warning btn-sm btn-icon" 
+					title="Modificar registro" data-toggle="tooltip">
+				<i class="fa fa-edit"></i>
+			</button>
+			<button @click="deleteRecord(props.index,'/accounting/accounts')" 
+					class="btn btn-danger btn-sm btn-icon" 
+					title="Eliminar registro" data-toggle="tooltip">
+				<i class="fa fa-trash"></i>
+			</button>
+		</div>
+	</v-client-table>
 </template>
 <script>
 	export default{
 		props:['records'],
 		data(){
 			return{
-
+				columns: ['id', 'church', 'pastor', 'action']
 			}
+		},
+		created(){
+			this.table_options.headings = {
+				'id': '__checkbox',
+				'church': 'Iglesia',
+				'pastor': 'Pastor Principal',
+				'action':'ACCIÓN'
+			};
+			this.table_options.sortable = ['church','pastor'];
+			this.table_options.filterable = ['church','pastor'];
+			this.table_options.fields = [ {
+				          name: '__checkbox',   // <----
+				          titleClass: 'center aligned',
+				          dataClass: 'center aligned'
+				        }];
 		},
 		mounted(){
 			// alert("montado");
