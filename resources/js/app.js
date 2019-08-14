@@ -99,6 +99,45 @@ Vue.mixin({
 			default: ''
 		}
 	},
+	methods: {
+
+
+		editForm(id) {
+			location.href = (this.route_edit.indexOf("{id}") >= 0)
+							? this.route_edit.replace("{id}", id)
+							: this.route_edit + '/' + id;
+		},
+
+		/**
+		 * Método para la eliminación de registros
+		 *
+		 * @author  Ing. Roldan Vargas <rvargas@cenditel.gob.ve> | <roldandvg@gmail.com>
+		 * @param  {integer} index Elemento seleccionado para su eliminación
+		 * @param  {string}  url   Ruta que ejecuta la acción para eliminar un registro
+		 */
+    	deleteRecord(index, url) {
+    		var url = (url)?url:this.route_delete;
+    		var records = this.records;
+    		var confirmated = false;
+    		var index = index - 1;
+    		const vm = this;
+
+			var r = confirm("¿Esta seguro de eliminar este registro? ");
+			if (r == true) {
+				axios.delete(url + '/' + records[index].id).then(response => {
+					if (typeof(response.data.error) !== "undefined") {
+						/** Muestra un mensaje de error si sucede algún evento en la eliminación */
+						return false;
+					}
+					records.splice(index, 1);
+					alert("eliminando.");
+				}).catch(error => {});
+			} else {
+				// txt = "You pressed Cancel!";
+			}
+
+		},
+	},
 	// methods: {
 	// 	/**
  //         * Registro de eventos del sistema

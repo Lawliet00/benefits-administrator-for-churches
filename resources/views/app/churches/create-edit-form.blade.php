@@ -20,9 +20,15 @@
               </div>
             </div>
             <div class="card-body">
-              	<churches-create-edit-form :denominations="{{ $denominations }}"
-                :states="{{ $states }}" :cities="{{ $cities }}"
-                :municipalities="{{ $municipalities }}" :parishes="{{ $parishes }}" />
+                @if(isset($record))
+                    <churches-create-edit-form :record="{{ $record }}" :denominations="{{ $denominations }}"
+                    :states="{{ $states }}" :cities="{{ $cities }}"
+                    :municipalities="{{ $municipalities }}" :parishes="{{ $parishes }}" route_list="{{ url('/churches') }}" />
+                @else
+                  	<churches-create-edit-form :denominations="{{ $denominations }}"
+                    :states="{{ $states }}" :cities="{{ $cities }}"
+                    :municipalities="{{ $municipalities }}" :parishes="{{ $parishes }}" route_list="{{ url('/churches') }}" />
+                @endif
             </div>
           </div>
         </div>

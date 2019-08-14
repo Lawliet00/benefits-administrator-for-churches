@@ -24,8 +24,8 @@ class CreateChurchesTable extends Migration
             $table->string('church_name')->comment('Nombre de la Iglesia');
             $table->string('church_address')->comment('Dirección de la Iglesia');
 
-            // $table->integer('state_id')->unsigned();
-            // $table->foreign('state_id')->references('id')->on('states')->onDelete('cascade')->comment('Estado');
+            $table->integer('state_id')->unsigned();
+            $table->foreign('state_id')->references('id')->on('states')->onDelete('cascade')->comment('Estado');
 
             $table->integer('municipality_id')->unsigned();
             $table->foreign('municipality_id')->references('id')->on('municipalities')->onDelete('cascade')->comment('Municipio');

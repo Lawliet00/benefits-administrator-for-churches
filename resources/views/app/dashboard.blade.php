@@ -280,5 +280,3 @@
       </div>
     </div>
 @endsection
-
-@include('layouts.script')

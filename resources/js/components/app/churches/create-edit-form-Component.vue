@@ -107,7 +107,8 @@
     </div>
     <hr class="my-4">
     <div class="text-right">
-      <button class="btn btn-success" @click="InitRecord()">Guardar</button>
+      <button class="btn btn-success" v-if="record == null" @click="InitRecord()">Guardar</button>
+      <button class="btn btn-success" v-else @click="updateRecord()">Actualizar</button>
     </div>
   </div>
 </template>
@@ -142,6 +143,13 @@
             InitRecord:function() {
                 axios.post('/churches',this.info).then(response=>{
                     alert('registro creado');
+                    location.href=this.route_list;
+                });
+            },
+            updateRecord:function() {
+                axios.put('/churches/'+this.record.id, this.info).then(response=>{
+                    alert('registro actualizado');
+                    location.href=this.route_list;
                 });
             }
         }

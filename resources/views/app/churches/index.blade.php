@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <churches-list :records="{{ $churches }}" />
+                    <churches-list :records_base="{{ $churches }}" route_edit="{{ url('churches/{id}/edit') }}"/>
                 </div>
             </div>
         </div>
