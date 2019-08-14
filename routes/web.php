@@ -8,5 +8,10 @@ Route::post('login','Auth\LoginController@login')->name('login');
 Route::get('logout','Auth\LoginController@logout')->name('logout');
 
 
-// rutas de controladores de iglesia
-Route::get('churches','ChurchController@index')->name('churches');
+	/**
+	* Rutas de controladores de iglesias
+	*/ 
+	Route::get('churches','ChurchController@index')->name('churches');
+	Route::get('churches/create','ChurchController@create')->name('churches.create');
+	Route::get('churches/{id}/edit','ChurchController@create')->name('churches.edit');
+	Route::resource('churches', 'ChurchController', ['as' => 'churches', 'except' => ['index', 'create', 'edit'] ]);

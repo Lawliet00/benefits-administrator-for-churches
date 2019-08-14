@@ -12,11 +12,15 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-		User::create([
+        // Model::unguard();
+		User::updateOrCreate([
 			'name'=>'admin',
 			'email'=>'admin@admin.com',
+		],
+        [
 			'password'=>bcrypt('123456'),
 			'email_verified_at'=>date("Y-m-d"),
-		]);
+
+        ]);
     }
 }

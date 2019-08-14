@@ -1,7 +1,7 @@
 <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
   <div class="container-fluid">
     <!-- Brand -->
-    <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="./index.html">Panel de Control</a>
+    <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="">Panel de Control</a>
     <!-- User -->
     <ul class="navbar-nav align-items-center d-none d-md-flex">
       <li class="nav-item dropdown">
@@ -46,3 +46,10 @@
     </ul>
   </div>
 </nav>
+
+<!-- Header -->
+<div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    @yield('header-content')
+  </div>
+</div>

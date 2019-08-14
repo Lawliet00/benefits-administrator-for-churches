@@ -7,3 +7,5 @@
   <link href="{{ asset('argon-dashboard-free/vendor/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
   <!-- Argon CSS -->
   <link type="text/css" href="{{ asset('argon-dashboard-free/css/argon.css?v=1.0.0') }}" rel="stylesheet">
+
+  

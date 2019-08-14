@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\City;
-class CitiesTableSeeder extends Seeder
+use App\Denomination;
+
+class DenominationsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,8 +13,8 @@ class CitiesTableSeeder extends Seeder
     public function run()
     {
         // Model::unguard();
-        City::updateOrCreate([
-			'name'=>'Ciudad test',
+        Denomination::updateOrCreate([
+			'name'=>'Denomination test',
 		],
         []);
     }

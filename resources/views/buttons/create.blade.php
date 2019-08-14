@@ -1,0 +1,1 @@
+<a href="{{ $route }}" class="btn btn-sm btn-primary" title="Crear Nuevo Registro" data-toggle="tooltip"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><i class="fa fa-plus"></i></font></font></a>

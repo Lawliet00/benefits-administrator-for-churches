@@ -16,7 +16,7 @@ class CreateChurchesTable extends Migration
         Schema::create('churches', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('pastor_names')->comment('Nombres del pastor principal de la congragación');
-            $table->string('pastor_surnames')->comment('Nombre del pastor principal de la congragación');
+            $table->string('pastor_surnames')->comment('Apellidos del pastor principal de la congragación');
             $table->integer('ci')->unique()->comment('Cedula de identidad');
             $table->string('pastors_address')->comment('Dirección del pastor principal');
             $table->string('phone')->comment('telefono del pastor principal');
@@ -24,20 +24,20 @@ class CreateChurchesTable extends Migration
             $table->string('church_name')->comment('Nombre de la Iglesia');
             $table->string('church_address')->comment('Dirección de la Iglesia');
 
-            $table->integer('state_id')->unsigned();
-            $table->foreign('state_id')->references('id')->on('states')->onDelete('cascade')->comment('Estado de la Iglesia');
+            // $table->integer('state_id')->unsigned();
+            // $table->foreign('state_id')->references('id')->on('states')->onDelete('cascade')->comment('Estado');
 
             $table->integer('municipality_id')->unsigned();
-            $table->foreign('municipality_id')->references('id')->on('municipalities')->onDelete('cascade')->comment('Municipio de la Iglesia');
+            $table->foreign('municipality_id')->references('id')->on('municipalities')->onDelete('cascade')->comment('Municipio');
 
             $table->integer('city_id')->unsigned();
-            $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade')->comment('Ciudad de la Iglesia');
+            $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade')->comment('Ciudad');
 
             $table->integer('parish_id')->unsigned();
-            $table->foreign('parish_id')->references('id')->on('parishes')->onDelete('cascade')->comment('Parroquia de la Iglesia');
+            $table->foreign('parish_id')->references('id')->on('parishes')->onDelete('cascade')->comment('Parroquia');
 
             $table->integer('denomination_id')->unsigned();
-            $table->foreign('denomination_id')->references('id')->on('denominations')->onDelete('cascade')->comment('Parroquia de la Iglesia');
+            $table->foreign('denomination_id')->references('id')->on('denominations')->onDelete('cascade')->comment('Denominación');
 
             $table->timestamps();
         });
