@@ -18,79 +18,103 @@ class ChurchController extends Controller
     {
         $churches = [];
 
-        foreach (Church::orderBy('church_name','ASC')->get() as $church) {
+        foreach (Church::orderBy('church_name', 'ASC')->get() as $church) {
             array_push($churches, [
                 'id'     => $church->id,
                 'church' => $church->church_name,
                 'pastor' => $church->pastor_surnames.', '.$church->pastor_names,
-                'action' => $church->id,
             ]);
         }
 
         $churches = json_encode($churches);
-    	return view('app.churches.index',compact('churches'));
+        return view('app.churches.index', compact('churches'));
     }
 
     public function create()
     {
-        $denominations = Denomination::orderBy('name','ASC')->get();
+        $denominations  = Denomination::orderBy('name', 'ASC')->get();
+        
+        $cities         = City::orderBy('name', 'ASC')->get();
+        
+        $states         = State::orderBy('name', 'ASC')->get();
+        
+        $parishes       = Parish::orderBy('name', 'ASC')->get();
+        
+        $municipalities = Municipality::orderBy('name', 'ASC')->get();
 
-        $cities = City::orderBy('name','ASC')->get();
-
-        $states = State::orderBy('name','ASC')->get();
-
-        $parishes = Parish::orderBy('name','ASC')->get();
-
-        $municipalities = Municipality::orderBy('name','ASC')->get();
-
-    	return view('app.churches.create-edit-form',compact('denominations','states','cities','municipalities','parishes'));
+        return view('app.churches.create-edit-form', compact(
+            'denominations',
+            'states',
+            'cities',
+            'municipalities',
+            'parishes'
+        ));
     }
 
     public function store(Request $request)
     {
-        Church::updateOrCreate([
-            'pastor_names'    =>$request['pastor_names'],
-            'pastor_surnames' =>$request['pastor_surnames'],
-            'ci'              =>$request['ci'],
-            'church_name'     =>$request['church_name'],
-            'email'           =>$request['email'],
-        ],
-        [
-            'pastors_address' =>$request['pastors_address'],
-            'phone'           =>$request['phone'],
-            'church_address'  =>$request['church_address'],
-            'municipality_id' =>$request['municipality_id'],
-            'city_id'         =>$request['city_id'],
-            'parish_id'       =>$request['parish_id'],
-            'denomination_id' =>$request['denomination_id'],
-        ]);
+        Church::updateOrCreate(
+            [
+                'pastor_names'    =>$request['pastor_names'],
+                'pastor_surnames' =>$request['pastor_surnames'],
+                'ci'              =>$request['ci'],
+                'church_name'     =>$request['church_name'],
+                'email'           =>$request['email'],
+            ],
+            [
+                'pastors_address' =>$request['pastors_address'],
+                'phone'           =>$request['phone'],
+                'church_address'  =>$request['church_address'],
+                'municipality_id' =>$request['municipality_id'],
+                'city_id'         =>$request['city_id'],
+                'parish_id'       =>$request['parish_id'],
+                'denomination_id' =>$request['denomination_id'],
+            ]
+        );
     }
 
     public function edit($id)
     {
-    	$record = Church::find($id);
+        $record        = Church::find($id);
+        
+        $denominations = Denomination::orderBy('name', 'ASC')->get();
+        
+        $cities        = City::orderBy('name', 'ASC')->get();
+        
+        $states        = State::orderBy('name', 'ASC')->get();
+        
+        $parishes      = Parish::orderBy('name', 'ASC')->get();
 
-        $denominations = Denomination::orderBy('name','ASC')->get();
-
-        $cities = City::orderBy('name','ASC')->get();
-
-        $states = State::orderBy('name','ASC')->get();
-
-        $parishes = Parish::orderBy('name','ASC')->get();
-
-        $municipalities = Municipality::orderBy('name','ASC')->get();
-    	return view('app.churches.create-edit-form', compact('record','denominations',
-                                                             'states','cities','municipalities','parishes'));
+        $municipalities = Municipality::orderBy('name', 'ASC')->get();
+        return view('app.churches.create-edit-form', compact(
+            'record',
+            'denominations',
+            'states',
+            'cities',
+            'municipalities',
+            'parishes'
+        ));
     }
-
+    /**
+     * [update Actualiza registros]
+     * @param  Request $request [Objeto con los atributos e información que se actualizara]
+     * @param  [type]  $id      [Id del registro que se actualizara]
+     * @return [Json]           [mensaje de exito de operación]
+     */
     public function update(Request $request, $id)
     {
         Church::find($id)->update($request->all());
+        return response()->json(['message'=>'Success'], 200);
     }
 
+    /**
+     * [destroy Elimina un registro]
+     * @param  [type] $id [Id del registro que se eliminara]
+     * @return [Json]           [mensaje de exito de operación]
+     */
     public function destroy($id)
     {
-        // $church = Church::find($id)->delete();
-        return response()->json(['message'=>'Success']);
+        $church = Church::find($id)->delete();
+        return response()->json(['message'=>'Success'], 200);
     }
 }

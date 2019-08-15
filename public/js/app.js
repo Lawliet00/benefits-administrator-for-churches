@@ -2277,19 +2277,13 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.table_options.headings = {
-      'id': '__checkbox',
+      // 'id': '__checkbox',
       'church': 'Iglesia',
       'pastor': 'Pastor Principal',
-      'action': 'ACCIÓN'
+      'id': 'ACCIÓN'
     };
     this.table_options.sortable = ['church', 'pastor'];
     this.table_options.filterable = ['church', 'pastor'];
-    this.table_options.fields = [{
-      name: '__checkbox',
-      // <----
-      titleClass: 'center aligned',
-      dataClass: 'center aligned'
-    }];
   },
   mounted: function mounted() {
     this.records = this.records_base;

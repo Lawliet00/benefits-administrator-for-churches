@@ -99,6 +99,11 @@
                 <i class="ni ni-istanbul text-info"></i> Iglesias
               </a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('formalize_events') }}">
+                <i class="ni ni-istanbul text-info"></i> Formalizar Evento
+              </a>
+            </li>
         </ul>
       </div>
     </div>
