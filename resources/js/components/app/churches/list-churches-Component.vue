@@ -13,15 +13,15 @@
 					v-if="action == 'list'">
 				<i class="fa fa-trash"></i>
 			</button>
-            <button @click="addChurch(porps.index, props.row)"
+            <button @click="addChurch(props.index, props.row)"
                     class="btn btn-success btn-sm btn-icon" 
                     title="Agregar al listado" data-toggle="tooltip"
                     v-if="action == 'listAvailable'">
                 <i class="fa fa-check"></i>
             </button>
-            <button 
+            <button @click="removeChurch(props.index, props.row)"
 					class="btn btn-danger btn-sm btn-icon" 
-					title="Eliminar registro del listado" data-toggle="tooltip"
+					title="Sacar registro del listado" data-toggle="tooltip"
 					v-if="action == 'listAdded'">
 				<i class="fa fa-trash"></i>
 			</button>
@@ -39,7 +39,6 @@
 		},
 		created(){
 			this.table_options.headings = {
-				// 'id': '__checkbox',
 				'church': 'Iglesia',
 				'pastor': 'Pastor Principal',
 				'id':'ACCIÓN'
@@ -49,6 +48,20 @@
 		},
 		mounted(){
 			this.records = this.records_base;
+		},
+		methods:{
+			addChurch:function(index, record){
+				EventBus.$emit('reload:table-added',{
+					'index':index,
+					'record':record
+				});
+			},
+			removeChurch:function(index, record){
+				EventBus.$emit('reload:table-available',{
+					'index':index,
+					'record':record
+				});
+			}
 		}
 	};
 </script>

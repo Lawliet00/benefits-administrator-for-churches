@@ -22,12 +22,12 @@
         <div class="row">
             <div class="col-6">
                 <h6 class="heading-small text-muted mb-4 text-uppercase"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Iglesias disponibles</font></font></h6>
-    
-                <list-churches :records_base="churches" :action="'listAvailable'" />
+                
+                    <list-churches :records_base="churchAvailable" :action="'listAvailable'" />
             </div>
             <div class="col-6">
                 <h6 class="heading-small text-muted mb-4 text-uppercase"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Iglesias Asignadas</font></font></h6>
-                <list-churches :records_base="churches" :action="'listAdded'" />
+                    <list-churches :records_base="churchAdded" :action="'listAdded'" />
             </div>
         </div>
     </div>
@@ -44,16 +44,26 @@
         props:['record', 'denominations','states','cities','municipalities','parishes', 'churches'],
         data(){
             return{
+                churchAdded:[],
+                churchAvailable:[],
                 infoEvent:{
                     state:1,
                     space_available:'',
                 },
             }
         },
-        mounted(){
-            if (this.record != null) {
-                this.info = this.record;
-            }
+        created(){
+            this.churchAvailable = this.churches;
+
+            EventBus.$on('reload:table-added',(data)=>{
+                this.churchAvailable.splice(data.index-1, 1);
+                this.churchAdded.push(data.record);
+            });
+
+            EventBus.$on('reload:table-available',(data)=>{
+                this.churchAdded.splice(data.index-1, 1);
+                this.churchAvailable.push(data.record);
+            });
         },
         methods:{
             // InitRecord:function() {
@@ -68,6 +78,9 @@
             //         location.href=this.route_list;
             //     });
             // }
+        },
+        computed:{
+            // 
         }
     };
 </script>
