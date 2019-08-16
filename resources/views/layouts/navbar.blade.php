@@ -100,7 +100,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('formalize_events') }}">
+              <a class="nav-link" href="{{ route('formalizeEvents') }}">
                 <i class="ni ni-istanbul text-info"></i> Formalizar Evento
               </a>
             </li>

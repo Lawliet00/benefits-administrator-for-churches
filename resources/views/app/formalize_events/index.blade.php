@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-  Iglesias
+  Eventos
 @endsection
 
 @section('content')
@@ -13,20 +13,21 @@
                 <div class="card-header border-0">
                     <div class="row align-items-center">
                         <div class="col-8">
-                        <h3 class="mb-0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">LISTADO DE IGLESIAS</font></font></h3>
+                        <h3 class="mb-0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">LISTADO DE EVENTOS</font></font></h3>
                         </div>
                         <div class="col-4 text-right">
                             @include('buttons.previous', ['route' => url()->previous()])
-                            @include('buttons.create', ['route' => route('churches.create')])
+                            @include('buttons.create', ['route' => route('formalizeEvents.create')])
                             {{-- @include('buttons.minimize') --}}
                         </div>
                     </div>
                 </div>
                 <div class="card-body">
-                    <churches-list :records_base="{{ $churches }}" route_edit="{{ url('churches/{id}/edit') }}"/>
+                    <event-list :records_base="{{ $events }}" route_edit="{{ url('formalizeEvents/{id}/edit') }}" />
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 @endsection

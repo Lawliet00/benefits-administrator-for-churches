@@ -19,7 +19,7 @@ Vue.use(ClientTable);
  *
  * @author  Juan Rosas <JuanFBass17@gmail.com>
  */
-Vue.component('churches-list', require('./components/app/churches/index-Component.vue').default);
+Vue.component('list-churches', require('./components/app/churches/list-churches-Component.vue').default);
 
 /**
  * Componente para crear y editar iglesias
@@ -27,6 +27,20 @@ Vue.component('churches-list', require('./components/app/churches/index-Componen
  * @author  Juan Rosas <JuanFBass17@gmail.com>
  */
 Vue.component('churches-create-edit-form', require('./components/app/churches/create-edit-form-Component.vue').default);
+
+/**
+ * Componente para Listar lso eventos organizados
+ *
+ * @author  Juan Rosas <JuanFBass17@gmail.com>
+ */
+Vue.component('event-list', require('./components/app/formalize_events/index-Component.vue').default);
+
+/**
+ * Componente para crear y editar eventos
+ *
+ * @author  Juan Rosas <JuanFBass17@gmail.com>
+ */
+Vue.component('event-create-edit-form', require('./components/app/formalize_events/create-edit-form-Component.vue').default);
 
 
 
@@ -137,6 +151,32 @@ Vue.mixin({
 			}
 
 		},
+
+		/**
+		 * [onlyNumbers Solo permite escribir en los input los caracteres establecidos]
+		 * @param  {[String]} string [cadena tecleada por el usuario]
+		 * @param  {[String]} filter [cadena de caracteres que permitira]
+		 * @author Juan Rosas <jrosas@cenditel.gob.ve | juan.rosasr01@gmail.com>
+		 * @return {[String]}        [cadena permitida]
+		 */
+		onlyNumbers(string, filter = null){
+			var out = '';
+
+			/** Caracteres validos por defecto */
+			var dafaultFilter = '1234567890';
+			if(filter != null){
+				dafaultFilter = filter;
+			}
+			
+		    /** Recorrer el texto y verificar si el caracter se encuentra en la lista de validos  */
+		    for (var i=0; i<string.length; i++)
+		       if (dafaultFilter.indexOf(string.charAt(i)) != -1) 
+		             //Se añaden a la salida los caracteres validos
+			     out += string.charAt(i);
+			
+		    /** Retornar valor filtrado */
+		    return out;
+		}
 	},
 	// methods: {
 	// 	/**

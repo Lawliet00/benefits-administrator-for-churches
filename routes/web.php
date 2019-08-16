@@ -14,4 +14,6 @@
     Route::get('churches/create', 'ChurchController@create')->name('churches.create');
     Route::resource('churches', 'ChurchController', ['except' => ['index', 'create'] ]);
 
-    Route::get('formalize_events', 'FormalizeEventsController@index')->name('formalize_events');
+    Route::get('formalizeEvents', 'FormalizeEventController@index')->name('formalizeEvents');
+    Route::get('formalizeEvents/create', 'FormalizeEventController@create')->name('formalizeEvents.create');
+    Route::resource('formalizeEvents', 'FormalizeEventController', ['except' => ['index', 'create'] ]);

@@ -2242,10 +2242,156 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/app/churches/index-Component.vue?vue&type=script&lang=js&":
-/*!***************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/app/churches/index-Component.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/app/churches/list-churches-Component.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/app/churches/list-churches-Component.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['records_base', 'action'],
+  data: function data() {
+    return {
+      records: [],
+      columns: ['church', 'pastor', 'id']
+    };
+  },
+  created: function created() {
+    this.table_options.headings = {
+      // 'id': '__checkbox',
+      'church': 'Iglesia',
+      'pastor': 'Pastor Principal',
+      'id': 'ACCIÓN'
+    };
+    this.table_options.sortable = ['church', 'pastor'];
+    this.table_options.filterable = ['church', 'pastor'];
+  },
+  mounted: function mounted() {
+    this.records = this.records_base;
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/app/formalize_events/create-edit-form-Component.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/app/formalize_events/create-edit-form-Component.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['record', 'denominations', 'states', 'cities', 'municipalities', 'parishes', 'churches'],
+  data: function data() {
+    return {
+      infoEvent: {
+        state: 1,
+        space_available: ''
+      }
+    };
+  },
+  mounted: function mounted() {
+    if (this.record != null) {
+      this.info = this.record;
+    }
+  },
+  methods: {// InitRecord:function() {
+    //     axios.post('/churches',this.info).then(response=>{
+    //         alert('registro creado');
+    //         location.href=this.route_list;
+    //     });
+    // },
+    // updateRecord:function() {
+    //     axios.put('/churches/'+this.record.id, this.info).then(response=>{
+    //         alert('registro actualizado');
+    //         location.href=this.route_list;
+    //     });
+    // }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/app/formalize_events/index-Component.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/app/formalize_events/index-Component.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2272,18 +2418,19 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       records: [],
-      columns: ['id', 'church', 'pastor', 'action']
+      columns: ['dateInit', 'dateFinish', 'space_available', 'state', 'id']
     };
   },
   created: function created() {
     this.table_options.headings = {
-      // 'id': '__checkbox',
-      'church': 'Iglesia',
-      'pastor': 'Pastor Principal',
+      'dateInit': 'Fecha de Inicio',
+      'dateFinish': 'Fecha de Finalización',
+      'space_available': 'Cupos Disponibles',
+      'state': 'Estado del evento',
       'id': 'ACCIÓN'
     };
-    this.table_options.sortable = ['church', 'pastor'];
-    this.table_options.filterable = ['church', 'pastor'];
+    this.table_options.sortable = ['dateInit', 'dateFinish'];
+    this.table_options.filterable = ['dateInit', 'dateFinish'];
   },
   mounted: function mounted() {
     this.records = this.records_base;
@@ -45819,10 +45966,322 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/app/churches/index-Component.vue?vue&type=template&id=726f79be&":
-/*!*******************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/app/churches/index-Component.vue?vue&type=template&id=726f79be& ***!
-  \*******************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/app/churches/list-churches-Component.vue?vue&type=template&id=5eafd8b3&":
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/app/churches/list-churches-Component.vue?vue&type=template&id=5eafd8b3& ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("v-client-table", {
+    attrs: {
+      columns: _vm.columns,
+      data: _vm.records,
+      options: _vm.table_options
+    },
+    scopedSlots: _vm._u([
+      {
+        key: "id",
+        fn: function(props) {
+          return _c("div", { staticClass: "text-center" }, [
+            _vm.action == "list"
+              ? _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-warning btn-sm btn-icon",
+                    attrs: {
+                      title: "Modificar registro",
+                      "data-toggle": "tooltip"
+                    },
+                    on: {
+                      click: function($event) {
+                        return _vm.editForm(props.row.id)
+                      }
+                    }
+                  },
+                  [_c("i", { staticClass: "fa fa-edit" })]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.action == "list"
+              ? _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger btn-sm btn-icon",
+                    attrs: {
+                      title: "Eliminar registro",
+                      "data-toggle": "tooltip"
+                    },
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteRecord(props.index, "/churches")
+                      }
+                    }
+                  },
+                  [_c("i", { staticClass: "fa fa-trash" })]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.action == "listAvailable"
+              ? _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-success btn-sm btn-icon",
+                    attrs: {
+                      title: "Agregar al listado",
+                      "data-toggle": "tooltip"
+                    },
+                    on: {
+                      click: function($event) {
+                        return _vm.addChurch(_vm.porps.index, props.row)
+                      }
+                    }
+                  },
+                  [_c("i", { staticClass: "fa fa-check" })]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.action == "listAdded"
+              ? _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger btn-sm btn-icon",
+                    attrs: {
+                      title: "Eliminar registro del listado",
+                      "data-toggle": "tooltip"
+                    }
+                  },
+                  [_c("i", { staticClass: "fa fa-trash" })]
+                )
+              : _vm._e()
+          ])
+        }
+      }
+    ])
+  })
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/app/formalize_events/create-edit-form-Component.vue?vue&type=template&id=41de3e79&":
+/*!**************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/app/formalize_events/create-edit-form-Component.vue?vue&type=template&id=41de3e79& ***!
+  \**************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "h6",
+      { staticClass: "heading-small text-muted mb-4 text-uppercase" },
+      [
+        _c(
+          "font",
+          { staticStyle: { "vertical-align": "inherit" } },
+          [
+            _c("font", { staticStyle: { "vertical-align": "inherit" } }, [
+              _vm._v("Información de evento")
+            ])
+          ],
+          1
+        )
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "pl-lg-4" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-6" }, [
+          _c("div", { staticClass: "form-group focused" }, [
+            _c(
+              "label",
+              {
+                staticClass: "form-control-label text-uppercase",
+                attrs: { for: "input-username" }
+              },
+              [
+                _c(
+                  "font",
+                  { staticStyle: { "vertical-align": "inherit" } },
+                  [
+                    _c(
+                      "font",
+                      { staticStyle: { "vertical-align": "inherit" } },
+                      [_vm._v("Cantidad de cupos disponibles")]
+                    )
+                  ],
+                  1
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.infoEvent.space_available,
+                  expression: "infoEvent.space_available"
+                }
+              ],
+              staticClass: "form-control form-control-alternative",
+              attrs: {
+                type: "text",
+                placeholder: "Cantidad de cupos disponibles para el evento",
+                onkeyup: (_vm.infoEvent.space_available = _vm.onlyNumbers(
+                  _vm.infoEvent.space_available
+                ))
+              },
+              domProps: { value: _vm.infoEvent.space_available },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(
+                    _vm.infoEvent,
+                    "space_available",
+                    $event.target.value
+                  )
+                }
+              }
+            })
+          ])
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("hr", { staticClass: "my-4" }),
+    _vm._v(" "),
+    _c("div", { staticClass: "pl-lg-4" }, [
+      _c("div", { staticClass: "row" }, [
+        _c(
+          "div",
+          { staticClass: "col-6" },
+          [
+            _c(
+              "h6",
+              { staticClass: "heading-small text-muted mb-4 text-uppercase" },
+              [
+                _c(
+                  "font",
+                  { staticStyle: { "vertical-align": "inherit" } },
+                  [
+                    _c(
+                      "font",
+                      { staticStyle: { "vertical-align": "inherit" } },
+                      [_vm._v("Listado de Iglesias disponibles")]
+                    )
+                  ],
+                  1
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("list-churches", {
+              attrs: { records_base: _vm.churches, action: "listAvailable" }
+            })
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "col-6" },
+          [
+            _c(
+              "h6",
+              { staticClass: "heading-small text-muted mb-4 text-uppercase" },
+              [
+                _c(
+                  "font",
+                  { staticStyle: { "vertical-align": "inherit" } },
+                  [
+                    _c(
+                      "font",
+                      { staticStyle: { "vertical-align": "inherit" } },
+                      [_vm._v("Iglesias Asignadas")]
+                    )
+                  ],
+                  1
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("list-churches", {
+              attrs: { records_base: _vm.churches, action: "listAdded" }
+            })
+          ],
+          1
+        )
+      ])
+    ]),
+    _vm._v(" "),
+    _c("hr", { staticClass: "my-4" }),
+    _vm._v(" "),
+    _c("div", { staticClass: "text-right" }, [
+      _vm.record == null
+        ? _c(
+            "button",
+            {
+              staticClass: "btn btn-success",
+              on: {
+                click: function($event) {
+                  return _vm.InitRecord()
+                }
+              }
+            },
+            [_vm._v("Guardar")]
+          )
+        : _c(
+            "button",
+            {
+              staticClass: "btn btn-success",
+              on: {
+                click: function($event) {
+                  return _vm.updateRecord()
+                }
+              }
+            },
+            [_vm._v("Actualizar")]
+          )
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/app/formalize_events/index-Component.vue?vue&type=template&id=19ab661f&":
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/app/formalize_events/index-Component.vue?vue&type=template&id=19ab661f& ***!
+  \***************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -63712,7 +64171,7 @@ Vue.use(vue_tables_2__WEBPACK_IMPORTED_MODULE_0__["ClientTable"]);
  * @author  Juan Rosas <JuanFBass17@gmail.com>
  */
 
-Vue.component('churches-list', __webpack_require__(/*! ./components/app/churches/index-Component.vue */ "./resources/js/components/app/churches/index-Component.vue")["default"]);
+Vue.component('list-churches', __webpack_require__(/*! ./components/app/churches/list-churches-Component.vue */ "./resources/js/components/app/churches/list-churches-Component.vue")["default"]);
 /**
  * Componente para crear y editar iglesias
  *
@@ -63720,6 +64179,20 @@ Vue.component('churches-list', __webpack_require__(/*! ./components/app/churches
  */
 
 Vue.component('churches-create-edit-form', __webpack_require__(/*! ./components/app/churches/create-edit-form-Component.vue */ "./resources/js/components/app/churches/create-edit-form-Component.vue")["default"]);
+/**
+ * Componente para Listar lso eventos organizados
+ *
+ * @author  Juan Rosas <JuanFBass17@gmail.com>
+ */
+
+Vue.component('event-list', __webpack_require__(/*! ./components/app/formalize_events/index-Component.vue */ "./resources/js/components/app/formalize_events/index-Component.vue")["default"]);
+/**
+ * Componente para crear y editar eventos
+ *
+ * @author  Juan Rosas <JuanFBass17@gmail.com>
+ */
+
+Vue.component('event-create-edit-form', __webpack_require__(/*! ./components/app/formalize_events/create-edit-form-Component.vue */ "./resources/js/components/app/formalize_events/create-edit-form-Component.vue")["default"]);
 /**
  * Opciones de configuración global para utilizar en todos los componentes vuejs de la aplicación
  *
@@ -63824,6 +64297,36 @@ Vue.mixin({
         })["catch"](function (error) {});
       } else {// txt = "You pressed Cancel!";
       }
+    },
+
+    /**
+     * [onlyNumbers Solo permite escribir en los input los caracteres establecidos]
+     * @param  {[String]} string [cadena tecleada por el usuario]
+     * @param  {[String]} filter [cadena de caracteres que permitira]
+     * @author Juan Rosas <jrosas@cenditel.gob.ve | juan.rosasr01@gmail.com>
+     * @return {[String]}        [cadena permitida]
+     */
+    onlyNumbers: function onlyNumbers(string) {
+      var filter = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+      var out = '';
+      /** Caracteres validos por defecto */
+
+      var dafaultFilter = '1234567890';
+
+      if (filter != null) {
+        dafaultFilter = filter;
+      }
+      /** Recorrer el texto y verificar si el caracter se encuentra en la lista de validos  */
+
+
+      for (var i = 0; i < string.length; i++) {
+        if (dafaultFilter.indexOf(string.charAt(i)) != -1) //Se añaden a la salida los caracteres validos
+          out += string.charAt(i);
+      }
+      /** Retornar valor filtrado */
+
+
+      return out;
     }
   },
   // methods: {
@@ -64565,17 +65068,155 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/app/churches/index-Component.vue":
-/*!******************************************************************!*\
-  !*** ./resources/js/components/app/churches/index-Component.vue ***!
-  \******************************************************************/
+/***/ "./resources/js/components/app/churches/list-churches-Component.vue":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/app/churches/list-churches-Component.vue ***!
+  \**************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _index_Component_vue_vue_type_template_id_726f79be___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index-Component.vue?vue&type=template&id=726f79be& */ "./resources/js/components/app/churches/index-Component.vue?vue&type=template&id=726f79be&");
-/* harmony import */ var _index_Component_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index-Component.vue?vue&type=script&lang=js& */ "./resources/js/components/app/churches/index-Component.vue?vue&type=script&lang=js&");
+/* harmony import */ var _list_churches_Component_vue_vue_type_template_id_5eafd8b3___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./list-churches-Component.vue?vue&type=template&id=5eafd8b3& */ "./resources/js/components/app/churches/list-churches-Component.vue?vue&type=template&id=5eafd8b3&");
+/* harmony import */ var _list_churches_Component_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./list-churches-Component.vue?vue&type=script&lang=js& */ "./resources/js/components/app/churches/list-churches-Component.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _list_churches_Component_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _list_churches_Component_vue_vue_type_template_id_5eafd8b3___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _list_churches_Component_vue_vue_type_template_id_5eafd8b3___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/app/churches/list-churches-Component.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/app/churches/list-churches-Component.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/components/app/churches/list-churches-Component.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_list_churches_Component_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./list-churches-Component.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/app/churches/list-churches-Component.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_list_churches_Component_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/app/churches/list-churches-Component.vue?vue&type=template&id=5eafd8b3&":
+/*!*********************************************************************************************************!*\
+  !*** ./resources/js/components/app/churches/list-churches-Component.vue?vue&type=template&id=5eafd8b3& ***!
+  \*********************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_list_churches_Component_vue_vue_type_template_id_5eafd8b3___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./list-churches-Component.vue?vue&type=template&id=5eafd8b3& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/app/churches/list-churches-Component.vue?vue&type=template&id=5eafd8b3&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_list_churches_Component_vue_vue_type_template_id_5eafd8b3___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_list_churches_Component_vue_vue_type_template_id_5eafd8b3___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/app/formalize_events/create-edit-form-Component.vue":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/app/formalize_events/create-edit-form-Component.vue ***!
+  \*************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _create_edit_form_Component_vue_vue_type_template_id_41de3e79___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./create-edit-form-Component.vue?vue&type=template&id=41de3e79& */ "./resources/js/components/app/formalize_events/create-edit-form-Component.vue?vue&type=template&id=41de3e79&");
+/* harmony import */ var _create_edit_form_Component_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./create-edit-form-Component.vue?vue&type=script&lang=js& */ "./resources/js/components/app/formalize_events/create-edit-form-Component.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _create_edit_form_Component_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _create_edit_form_Component_vue_vue_type_template_id_41de3e79___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _create_edit_form_Component_vue_vue_type_template_id_41de3e79___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/app/formalize_events/create-edit-form-Component.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/app/formalize_events/create-edit-form-Component.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************!*\
+  !*** ./resources/js/components/app/formalize_events/create-edit-form-Component.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_create_edit_form_Component_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./create-edit-form-Component.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/app/formalize_events/create-edit-form-Component.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_create_edit_form_Component_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/app/formalize_events/create-edit-form-Component.vue?vue&type=template&id=41de3e79&":
+/*!********************************************************************************************************************!*\
+  !*** ./resources/js/components/app/formalize_events/create-edit-form-Component.vue?vue&type=template&id=41de3e79& ***!
+  \********************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_create_edit_form_Component_vue_vue_type_template_id_41de3e79___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./create-edit-form-Component.vue?vue&type=template&id=41de3e79& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/app/formalize_events/create-edit-form-Component.vue?vue&type=template&id=41de3e79&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_create_edit_form_Component_vue_vue_type_template_id_41de3e79___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_create_edit_form_Component_vue_vue_type_template_id_41de3e79___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/app/formalize_events/index-Component.vue":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/app/formalize_events/index-Component.vue ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _index_Component_vue_vue_type_template_id_19ab661f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index-Component.vue?vue&type=template&id=19ab661f& */ "./resources/js/components/app/formalize_events/index-Component.vue?vue&type=template&id=19ab661f&");
+/* harmony import */ var _index_Component_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index-Component.vue?vue&type=script&lang=js& */ "./resources/js/components/app/formalize_events/index-Component.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -64586,8 +65227,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _index_Component_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _index_Component_vue_vue_type_template_id_726f79be___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _index_Component_vue_vue_type_template_id_726f79be___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _index_Component_vue_vue_type_template_id_19ab661f___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _index_Component_vue_vue_type_template_id_19ab661f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -64597,38 +65238,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/app/churches/index-Component.vue"
+component.options.__file = "resources/js/components/app/formalize_events/index-Component.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/app/churches/index-Component.vue?vue&type=script&lang=js&":
-/*!*******************************************************************************************!*\
-  !*** ./resources/js/components/app/churches/index-Component.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************************************/
+/***/ "./resources/js/components/app/formalize_events/index-Component.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/components/app/formalize_events/index-Component.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_Component_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./index-Component.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/app/churches/index-Component.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_Component_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./index-Component.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/app/formalize_events/index-Component.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_Component_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/app/churches/index-Component.vue?vue&type=template&id=726f79be&":
-/*!*************************************************************************************************!*\
-  !*** ./resources/js/components/app/churches/index-Component.vue?vue&type=template&id=726f79be& ***!
-  \*************************************************************************************************/
+/***/ "./resources/js/components/app/formalize_events/index-Component.vue?vue&type=template&id=19ab661f&":
+/*!*********************************************************************************************************!*\
+  !*** ./resources/js/components/app/formalize_events/index-Component.vue?vue&type=template&id=19ab661f& ***!
+  \*********************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_Component_vue_vue_type_template_id_726f79be___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./index-Component.vue?vue&type=template&id=726f79be& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/app/churches/index-Component.vue?vue&type=template&id=726f79be&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_Component_vue_vue_type_template_id_726f79be___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_Component_vue_vue_type_template_id_19ab661f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./index-Component.vue?vue&type=template&id=19ab661f& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/app/formalize_events/index-Component.vue?vue&type=template&id=19ab661f&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_Component_vue_vue_type_template_id_19ab661f___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_Component_vue_vue_type_template_id_726f79be___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_Component_vue_vue_type_template_id_19ab661f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

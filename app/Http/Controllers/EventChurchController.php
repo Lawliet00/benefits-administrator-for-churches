@@ -2,17 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\EventChurch;
 use Illuminate\Http\Request;
-use App\Denomination;
-use App\Municipality;
-use App\Church;
-use App\Parish;
-use App\State;
-use App\City;
 
-use Auth;
-
-class FormalizeEventsController extends Controller
+class EventChurchController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,18 +14,7 @@ class FormalizeEventsController extends Controller
      */
     public function index()
     {
-        $churches = [];
-
-        foreach (Church::orderBy('church_name', 'ASC')->get() as $church) {
-            array_push($churches, [
-                'id'     => $church->id,
-                'church' => $church->church_name,
-                'pastor' => $church->pastor_surnames.', '.$church->pastor_names,
-            ]);
-        }
-
-        $churches = json_encode($churches);
-        return view('app.churches.index', compact('churches'));
+        //
     }
 
     /**
@@ -59,10 +41,10 @@ class FormalizeEventsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\EventChurch  $eventChurch
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(EventChurch $eventChurch)
     {
         //
     }
@@ -70,10 +52,10 @@ class FormalizeEventsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\EventChurch  $eventChurch
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(EventChurch $eventChurch)
     {
         //
     }
@@ -82,10 +64,10 @@ class FormalizeEventsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\EventChurch  $eventChurch
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, EventChurch $eventChurch)
     {
         //
     }
@@ -93,10 +75,10 @@ class FormalizeEventsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\EventChurch  $eventChurch
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(EventChurch $eventChurch)
     {
         //
     }
